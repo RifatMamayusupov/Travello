@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            width: 300px;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="first_name" placeholder="First Name" class="form-control"><br>
+            <input type="text" name="last_name" placeholder="Last Name" class="form-control"><br>
+            <input type="text" name="username" placeholder="Username" class="form-control"><br>
+            <input type="email" name="email" placeholder="Email" class="form-control">
+            <input type="password" name="pass" id="pwd" placeholder="Password" class="form-control">
+            <input type="password" name="pass2" id="pwd" placeholder="Confirm Password" class="form-control">
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div>
+        {% for message in messages %}
+        
+        <h3>{{message}}</h3>
+
+        {% endfor %}
+    </div>
+</body>
+
+</html>
